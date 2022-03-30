@@ -28,4 +28,8 @@ public class Vaso {
     public int getCantidadVasos() {
        return this.cantidadVasos;
     }
+    
+    public int getContenido(){
+        return this.contenido;
+    }
 }

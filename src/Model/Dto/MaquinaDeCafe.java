@@ -8,9 +8,6 @@ package Model.Dto;
  *
  * @author Junior S. De Los Santos V.
  */
-enum vasoTipo {
-    PEQUENO, MEDIANO, GRANDE
-}
 
 public class MaquinaDeCafe {
 
@@ -23,36 +20,28 @@ public class MaquinaDeCafe {
     Vaso getTipoVaso(String vasoTipo) {
         switch (vasoTipo) {
             case "pequeno":
-                return vasosPequenos;
+                return this.getVasoPequeno();
             case "mediano":
-                return vasosMedianos;
+                return this.getVasoMediano();
             case "grande":
-                return vasosGrandes;
+                return this.getVasoGrande();
         }
         return null;
     }
 
-    public Object getVasoDeCafe(Vaso tipoDeVaso, int cantidadDeVasos, int cantidadDeAzucar) {
-        if (tipoDeVaso.equals(vasosPequenos)) {
-            if (vasosPequenos.hasVasos(cantidadDeVasos)) {
-                if (this.cafe.hasCafe(cantidadDeVasos)) {
-                    if (this.azucar.hasAzucar(cantidadDeAzucar)) {
-                        this.vasosPequenos.giveVasos(cantidadDeVasos);
-                        this.azucar.giveAzucar(cantidadDeAzucar);
-                        this.cafe.giveCafe(cantidadDeVasos);
-                        return "Felicitaciones";
-                    } else {
-                        return "No hay Azucar";
-                    }
-                } else {
-                    return "No hay Cafe";
-                }
-            } else {
-                return "No hay Vasos";
-            }
-        }
-
-        return null;
+    public String getVasoDeCafe(Vaso tipoDeVaso, int cantidadDeVasos, int cantidadDeAzucar) {
+        
+        if(!this.azucar.hasAzucar(cantidadDeAzucar)) return "No hay Azucar";
+        
+        if(!this.cafe.hasCafe(tipoDeVaso.getContenido())) return "No hay Cafe";
+        
+        if(!tipoDeVaso.hasVasos(cantidadDeVasos)) return "No hay Vasos";
+        
+        this.azucar.giveAzucar(cantidadDeAzucar);
+        this.cafe.giveCafe(tipoDeVaso.getContenido());
+        tipoDeVaso.giveVasos(cantidadDeVasos);
+        
+        return "Felicitaciones";
     }
 
     void setCafetera(Cafetera cafetera) {
