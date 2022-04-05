@@ -17,7 +17,7 @@ public class MaquinaDeCafe {
     private Vaso vasosGrandes;
     private Azucarero azucar;
 
-    Vaso getTipoVaso(String vasoTipo) {
+    public Vaso getTipoVaso(String vasoTipo) {
         switch (vasoTipo) {
             case "pequeno":
                 return this.getVasoPequeno();
@@ -44,43 +44,43 @@ public class MaquinaDeCafe {
         return "Felicitaciones";
     }
 
-    void setCafetera(Cafetera cafetera) {
+    public void setCafetera(Cafetera cafetera) {
         this.cafe = cafetera;
     }
 
-    void setVasosPequeno(Vaso vasosPequeno) {
+    public void setVasosPequeno(Vaso vasosPequeno) {
         this.vasosPequenos = vasosPequeno;
     }
 
-    void setVasosMediano(Vaso vasosMediano) {
+    public void setVasosMediano(Vaso vasosMediano) {
         this.vasosMedianos = vasosMediano;
     }
 
-    void setVasosGrande(Vaso vasosGrande) {
+    public void setVasosGrande(Vaso vasosGrande) {
         this.vasosGrandes = vasosGrande;
     }
 
-    void setAzucarero(Azucarero azucarero) {
+    public void setAzucarero(Azucarero azucarero) {
         this.azucar = azucarero;
     }
 
-    Cafetera getCafetera() {
+    public Cafetera getCafetera() {
         return this.cafe;
     }
 
-    Vaso getVasoPequeno() {
+    public Vaso getVasoPequeno() {
         return this.vasosPequenos;
     }
 
-    Vaso getVasoMediano() {
+    public Vaso getVasoMediano() {
         return this.vasosMedianos;
     }
 
-    Vaso getVasoGrande() {
+    public Vaso getVasoGrande() {
         return this.vasosGrandes;
     }
 
-    Azucarero getAzucarero() {
+    public Azucarero getAzucarero() {
         return this.azucar;
     }
 }

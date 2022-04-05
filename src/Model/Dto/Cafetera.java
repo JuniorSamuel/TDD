@@ -11,7 +11,7 @@ package Model.Dto;
 public class Cafetera {
     private int cantidadCafe;
 
-    Cafetera(int cantidadCafe) {
+    public Cafetera(int cantidadCafe) {
         this.cantidadCafe = cantidadCafe;
     }
     
